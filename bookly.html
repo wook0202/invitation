@@ -134,7 +134,7 @@
   align-items: center;
   justify-content: center;
   color: rgba(255,255,255,0.9);
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   font-weight: 700;
   z-index: 2;
   box-shadow: 
@@ -419,7 +419,7 @@
       justify-content: center;
       flex-direction: column;
       color: #fff;
-      font-size: 0.55rem;
+      font-size: 0.65rem;
       font-weight: 700;
       letter-spacing: 0.03em;
       box-shadow: 0 6px 20px rgba(139,26,26,0.35);
@@ -1105,9 +1105,42 @@
       animation: shimmer 2.5s ease-in-out infinite;
     }
 
-    .form-submit:hover {
+    .form-submit:hover:not(:disabled):not(.locked) {
       transform: translateY(-2px);
       box-shadow: 0 12px 32px rgba(184,134,11,0.5);
+    }
+    .form-submit:disabled,
+    .form-submit.locked {
+      background: rgba(255,255,255,0.07) !important;
+      color: rgba(255,255,255,0.22) !important;
+      cursor: not-allowed !important;
+      transform: none !important;
+      box-shadow: none !important;
+    }
+    .form-submit:disabled::before,
+    .form-submit.locked::before { display: none; }
+    .ref-success-bar {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: rgba(34,197,94,0.12);
+      border: 1px solid rgba(34,197,94,0.35);
+      border-radius: 8px;
+      padding: 0.85rem 1.1rem;
+      animation: refPop 0.35s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    @keyframes refPop {
+      from { opacity:0; transform:scale(0.96); }
+      to   { opacity:1; transform:scale(1); }
+    }
+    .ref-check-icon {
+      width: 26px; height: 26px;
+      background: #22c55e;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem;
+      color: #fff;
+      flex-shrink: 0;
     }
 
     .cta-notice {
@@ -1363,20 +1396,13 @@
                   <div>수신: <strong>김병화 원장님 귀하</strong></div>
                   <div>발신: <strong>신정민 (참빛북클럽 앰배서더)</strong></div>
                 </div>
-                <div class="letter-date">2025. 01. 21.</div>
+
               </div>
               <div class="letter-body">
                 <p class="letter-greeting">김병화 원장님, 안녕하세요.</p>
                 <p class="letter-text">
-                  학부모님의 기대는 해마다 높아지고, 상담은 점점 더 세심하고 깊이 있는 방향으로 변화하고 있습니다.
-                  "우리 아이의 영어실력이 얼마나 성장했나요?" 라는 질문 앞에서 저 역시 어떻게 하면 더 정확하고 진정성 있게 아이의 성장을 설명드릴 수 있을지 고민하며, 때로는 막막함을 느꼈던 순간이 있었습니다.
-                </p>
-                <div class="letter-highlight">
-                  그런데 참빛북클럽을 도입한 이후로 달라졌습니다.<br>
-                  매달 자동으로 생성되는 <strong>Monthly Report</strong>와 아이의 <strong>영어 낭독 녹음</strong>을 보여드리니, 학부모님들이 먼저 "와, 이렇게 많이 성장했네요!"라고 하시더라고요.
-                </div>
-                <p class="letter-text">
-                  상담이 설득의 자리가 아닌, <strong>함께 성장을 확인하는 자리</strong>로 바뀌었습니다.
+                  학부모님들의 기대가 해마다 높아지면서, 상담 자리에서 아이의 성장을 어떻게 보여드려야 할지 고민이 깊어지는 요즘입니다.
+                  참빛북클럽을 직접 경험해보니, 상담이 설득의 자리가 아닌 <strong>함께 성장을 확인하는 자리</strong>로 자연스럽게 바뀌더라고요.
                   원장님께도 꼭 이 경험을 드리고 싶어 이 편지를 씁니다.
                 </p>
                 <div class="letter-signature">
@@ -1471,97 +1497,6 @@
       </div>
     </div>
   </section>
-
-
-<!-- ─── WHY SECTION ─── -->
-  <section class="why-section" id="why" aria-labelledby="why-title">
-    <div class="sec-inner">
-      <p class="sec-label" aria-hidden="true">참빛북클럽의 힘</p>
-      <h2 class="sec-title" id="why-title">
-        왜 많은 분들이<br>참빛북클럽을 추천할까요?
-      </h2>
-      <p class="sec-desc">
-        5년 연속 성장을 만들어낸 3가지 핵심 가치
-      </p>
-
-      <div class="why-grid" role="list" aria-label="참빛북클럽 3대 핵심 가치">
-        <article class="why-card" role="listitem">
-          <span class="why-icon" aria-hidden="true">📚</span>
-          <h3>콘텐츠의 힘</h3>
-          <p>
-            미국 공립학교 읽기 교재 <strong>맥그로힐 리더스</strong>로 쌓는 실질적 영어 실력.
-            독서 지수 기반 7단계 커리큘럼으로 학생 수준에 꼭 맞는 원서 독서.
-          </p>
-          <span class="why-badge">McGraw-Hill Wonders</span>
-        </article>
-
-        <article class="why-card" role="listitem">
-          <span class="why-icon" aria-hidden="true">📊</span>
-          <h3>데이터의 힘</h3>
-          <p>
-            상담의 무기가 되는 <strong>자동 생성 Monthly Report</strong>.
-            독서 권수, 러닝 시간, 학습 점수 향상 그래프를 학부모에게 보여주는 순간, 재원율이 달라집니다.
-          </p>
-          <span class="why-badge">자동 리포트</span>
-        </article>
-
-        <article class="why-card" role="listitem">
-          <span class="why-icon" aria-hidden="true">🎙️</span>
-          <h3>바이럴의 힘</h3>
-          <p>
-            원어민의 발음을 따라 유창하게 읽어 내려간 <strong>목소리 녹음</strong>을 학부모와 공유.
-            "우리 아이가 이렇게 읽어요!" — 가장 강력한 학부모 입소문 마케팅이 됩니다.
-          </p>
-          <span class="why-badge">증명되는 성장 기록</span>
-        </article>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ─── TRUST SECTION ─── -->
-  <section class="trust-section" id="trust" aria-labelledby="trust-title">
-    <div class="sec-inner">
-      <p class="sec-label" aria-hidden="true">5년의 증명</p>
-      <h2 class="sec-title" id="trust-title">
-        거센 풍랑 속에서도<br>매년 15% 이상 우상향 성장
-      </h2>
-      <p class="sec-desc">시장이 검증한 시스템, 5년 연속 성장이 증명합니다.</p>
-
-      <div class="growth-chart" aria-label="5년 연속 성장 차트">
-        <h3 class="chart-title">참빛북클럽 연도별 성장률</h3>
-        <p class="chart-sub">2020년 ~ 2024년 / 매년 15% 이상 지속 성장</p>
-
-    <div style="margin: 1.5rem -30px; padding: 0 !important; border-radius: 20px; overflow: hidden; position: relative; z-index: 10;">
-        <img src="img_naver_01.png" 
-             alt="참빛북클럽 우상향 성장 그래프" 
-             style="width: 100%; height: auto; display: block; visibility: visible !important; transform: scale(1.05); transform-origin: center;">
-  </div>
-  </div>
-
-        <div class="growth-summary" role="list" aria-label="성장 요약 수치">
-          <div class="g-stat" role="listitem">
-            <span class="num">5년</span>
-            <span class="lbl">연속 성장</span>
-          </div>
-          <div class="g-stat" role="listitem">
-            <span class="num">15%+</span>
-            <span class="lbl">매년 성장률</span>
-          </div>
-          <div class="g-stat" role="listitem">
-            <span class="num">2,000+</span>
-            <span class="lbl">도입 학원</span>
-          </div>
-        </div>
-      </div>
-
-      <blockquote class="trust-quote" aria-label="핵심 메시지">
-        "리스크를 줄이는 가장 현명한 방법은 
-        <br>검증된 시스템을 도입하는 것입니다."
-      </blockquote>
-    </div>
-  </section>
-
   <!-- ─── CTA SECTION ─── -->
   <section class="cta-section" id="contact" aria-labelledby="cta-title">
     <div class="cta-inner">
@@ -1577,8 +1512,48 @@
       </div>
 
       <!-- 상담 신청 폼 -->
+      <div class="form-card" style="margin-bottom:1.5rem">
 
-        <button class="form-submit" onclick="handleSubmit()" aria-label="특별 혜택 포함 상담 신청하기">
+        <!-- 이름 -->
+        <div class="form-row">
+          <label class="form-label">✦ 원장님 성함</label>
+          <input class="form-input" id="field-name" type="text" placeholder="성함을 입력해주세요"
+            oninput="checkFormReady()" />
+        </div>
+
+        <!-- 연락처 -->
+        <div class="form-row">
+          <label class="form-label">✦ 연락처</label>
+          <input class="form-input" id="field-phone" type="tel" placeholder="010-0000-0000"
+            oninput="this.value=this.value.replace(/[^0-9\-]/g,''); checkFormReady()" />
+        </div>
+
+        <!-- 추천인 코드 -->
+        <div class="form-row">
+          <label class="form-label">✦ 추천인 코드</label>
+          <div style="display:flex;gap:0.6rem">
+            <input class="form-input" id="field-code" type="text"
+              placeholder="예) CBC-ABC123" maxlength="12"
+              oninput="this.value=this.value.replace(/[^A-Za-z0-9\-]/g,'').toUpperCase(); checkFormReady()"
+              onkeydown="if(event.key==='Enter') handleSubmit()"
+              style="flex:1;letter-spacing:0.12em;font-weight:700;font-size:1.05rem"/>
+          </div>
+          <div id="code-feedback" style="margin-top:0.4rem;font-size:0.82rem;min-height:1.2em"></div>
+        </div>
+
+        <!-- 추천인 확인 배지 (코드 인증 후 표시) -->
+        <div id="ref-confirmed-row" style="display:none;margin-bottom:0.75rem">
+          <div id="ref-confirmed-inner"></div>
+        </div>
+
+        <div id="f-referrer" style="display:none"></div>
+
+      </div>
+
+        <p id="submit-guide" style="text-align:center;font-size:0.82rem;color:rgba(255,255,255,0.38);margin-top:1rem;margin-bottom:-0.25rem;transition:opacity 0.3s;">
+          🔒 모든 항목을 입력하면 신청 가능합니다
+        </p>
+        <button class="form-submit locked" id="submit-btn" onclick="handleSubmit()" disabled aria-label="특별 혜택 포함 무료체험 신청하기">
           ✦ 무료체험 신청하기
         </button>
       </div>
@@ -1628,6 +1603,66 @@
     });
     document.getElementById('cta-title').innerHTML =
       `<span>${toName}</span> 원장님,<br>이제 원장님의 학원에<br>'성장'이라는 선물을 더하세요`;
+
+    /* ─── STORAGE: localStorage (파일 환경 포함 어디서나 작동) ─── */
+    const DB = {
+      get(key)        { try { return JSON.parse(localStorage.getItem('cbc_' + key)); } catch(e) { return null; } },
+      set(key, value) { try { localStorage.setItem('cbc_' + key, JSON.stringify(value)); } catch(e) {} }
+    };
+
+    /* ─── 추천인 코드 확인 ─── */
+
+    let confirmedRefCode = null;
+    let confirmedRefRecord = null;
+
+    /* ─── 추천 코드 자동 적용 (URL ?ref= 파라미터) ─── */
+    const urlRef = getParam('ref');
+    if (urlRef) {
+      const codeField = document.getElementById('field-code');
+      if (codeField) {
+        codeField.value = urlRef.replace(/[^A-Za-z0-9\-]/g,'').toUpperCase();
+        codeField.readOnly = true;
+        codeField.style.opacity = '0.7';
+        setTimeout(checkFormReady, 50);
+      }
+    }
+
+    /* ── 폼 완성 여부 실시간 체크 ── */
+    function checkFormReady() {
+      const name  = (document.getElementById('field-name')?.value || '').trim();
+      const phone = (document.getElementById('field-phone')?.value || '').trim();
+      const code  = (document.getElementById('field-code')?.value || '').trim().toUpperCase();
+      const fb    = document.getElementById('code-feedback');
+
+      if (code.length > 0) {
+        if (!/^CBC-/.test(code)) {
+          fb.style.color = '#fca5a5';
+          fb.textContent = 'CBC- 로 시작해야 합니다';
+        } else if (!/^CBC-[A-Z]{3}[0-9]{3}$/.test(code)) {
+          fb.style.color = 'rgba(255,200,100,0.8)';
+          fb.textContent = '형식: CBC-ABC123 (알파벳 3자 + 숫자 3자)';
+        } else {
+          fb.style.color = '#4ade80';
+          fb.textContent = '✓ 올바른 코드 형식입니다';
+        }
+      } else {
+        fb.textContent = '';
+      }
+
+      const codeValid = /^CBC-[A-Z]{3}[0-9]{3}$/.test(code);
+      const allFilled = name && phone && codeValid;
+
+      const btn = document.getElementById('submit-btn');
+      const g   = document.getElementById('submit-guide');
+      if (allFilled) {
+        btn.disabled = false; btn.classList.remove('locked');
+        if (g) g.style.opacity = '0';
+      } else {
+        btn.disabled = true; btn.classList.add('locked');
+        if (g) g.style.opacity = '1';
+      }
+    }
+
 
     /* ─── 팝업 닫기 ─── */
     function closePopup() {
@@ -1688,18 +1723,23 @@
 
     /* ─── 폼 제출 ─── */
     function handleSubmit() {
-      const name  = document.getElementById('f-name').value.trim();
-      const phone = document.getElementById('f-phone').value.trim();
+      const btn   = document.getElementById('submit-btn');
+      if (btn.disabled) return;
+      const name  = document.getElementById('field-name').value.trim();
+      const phone = document.getElementById('field-phone').value.trim();
+      const code  = document.getElementById('field-code').value.trim().toUpperCase();
+      if (!name || !phone || !/^CBC-[A-Z]{3}[0-9]{3}$/.test(code)) return;
 
-      if (!name || !phone) {
-        alert('성함과 연락처를 입력해 주세요.');
-        return;
-      }
-
-      const btn = document.querySelector('.form-submit');
-      btn.textContent = '✓ 신청 완료! 담당자가 곧 연락드립니다.';
-      btn.style.background = 'linear-gradient(135deg, #16a34a, #22c55e)';
       btn.disabled = true;
+      btn.textContent = '신청 처리 중...';
+
+      setTimeout(() => {
+        btn.textContent = '✓ 신청 완료! 담당자가 곧 연락드립니다.';
+        btn.style.background = 'linear-gradient(135deg, #16a34a, #22c55e)';
+        btn.style.color = '#fff';
+        const g = document.getElementById('submit-guide');
+        if (g) g.style.display = 'none';
+      }, 700);
     }
 
     /* ─── 키보드 접근성 ─── */
