@@ -929,7 +929,7 @@
     /* ─── CTA SECTION ─── */
     .cta-section {
   display: none; /* ← 이 줄을 추가하세요 */
-  background: linear-gradient(160deg, #1a1208, #2d1f0a);
+  background: linear-gradient(160deg, #efe9e1, #d9cfc1);
   padding: 90px 5%;
   position: relative;
 }
@@ -959,7 +959,7 @@
       font-family: 'Noto Serif KR', serif;
       font-size: clamp(1.4rem, 3vw, 2rem);
       font-weight: 900;
-      color: var(--white);
+      color: var(--black);
       line-height: 1.4;
       margin-bottom: 1rem;
     }
@@ -968,14 +968,14 @@
 
     .cta-header p {
       font-size: 0.9425rem;
-      color: rgba(255,255,255,0.55);
+      color: rgba(0, 0, 0, 0.55);
       line-height: 1.8;
     }
 
     /* 상담 신청 폼 */
     .form-card {
       background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(184,134,11,0.2);
+      border: 1px solid rgba(0, 0, 0, 0.2);
       border-radius: 20px;
       padding: 2.5rem;
     }
@@ -988,18 +988,18 @@
       display: block;
       font-size: 0.845rem;
       font-weight: 700;
-      color: rgba(255,255,255,0.6);
+      color: rgba(0, 0, 0, 0.6);
       margin-bottom: 0.5rem;
       letter-spacing: 0.05em;
     }
 
     .form-input {
       width: 100%;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(184,134,11,0.2);
+      background: rgba(0, 0, 0, 0.06);
+      border: 1px solid rgba(0, 0, 0, 0.2);
       border-radius: 8px;
       padding: 0.85rem 1.2rem;
-      color: var(--white);
+      color: var(--black);
       font-family: 'Noto Sans KR', sans-serif;
       font-size: 0.9625rem;
       transition: border-color 0.2s;
@@ -1007,37 +1007,37 @@
     }
 
     .form-input:focus {
-      border-color: var(--gold);
-      background: rgba(184,134,11,0.06);
+      border-color: var(--black);
+      background: rgba(0, 0, 0, 0.06);
     }
 
     .form-input::placeholder { color: rgba(255,255,255,0.25); }
-    .form-input[readonly] { color: var(--gold-light); cursor: default; }
+    .form-input[readonly] { color: var(--black); cursor: default; }
 
     .form-input-ref {
       display: flex;
       align-items: center;
       gap: 0.75rem;
-      background: rgba(184,134,11,0.08);
-      border: 1px solid rgba(184,134,11,0.25);
+      background: rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(0, 0, 0, 0.25);
       border-radius: 8px;
       padding: 0.85rem 1.2rem;
     }
 
     .form-input-ref .checkmark {
-      color: var(--gold);
+      color: var(--black);
       font-size: 1.0625rem;
     }
 
     .form-input-ref span {
-      color: var(--gold-light);
+      color: var(--black);
       font-size: 0.9625rem;
       font-weight: 700;
     }
 
     .form-submit {
       width: 100%;
-      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      background: linear-gradient(135deg, var(--black), var(--black));
       color: var(--deep);
       border: none;
       padding: 1.1rem;
@@ -1052,19 +1052,10 @@
       margin-top: 1rem;
     }
 
-    .form-submit::before {
-      content: '';
-      position: absolute;
-      top: -50%; left: -60%;
-      width: 40%; height: 200%;
-      background: rgba(255,255,255,0.25);
-      transform: skewX(-25deg);
-      animation: shimmer 2.5s ease-in-out infinite;
-    }
 
     .form-submit:hover:not(:disabled):not(.locked) {
       transform: translateY(-2px);
-      box-shadow: 0 12px 32px rgba(184,134,11,0.5);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
     }
     .form-submit:disabled,
     .form-submit.locked {
@@ -1104,7 +1095,7 @@
       text-align: center;
       margin-top: 1.5rem;
       font-size: 0.8125rem;
-      color: rgba(255,255,255,0.3);
+      color: rgba(0, 0, 0, 0.3);
       line-height: 1.7;
     }
 
@@ -1118,7 +1109,7 @@
   background-size: cover;
   background-position: center;
   /* 세로 길이를 압축 (기존 100px -> 60px) */
-  padding: 35px 5%;
+  padding: 30px 5% 40px;
   text-align: center;
   color: var(--white);
   border-top: 1px solid rgba(184, 134, 11, 0.2);
@@ -1127,7 +1118,7 @@
 .footer-brand {
   font-family: 'Noto Serif KR', serif;
   font-size: 1.4rem; /* 크기 축소 */
-  font-weight: 700;
+  font-weight: 600;
   margin-bottom: 0.8rem;
   letter-spacing: 0.05em;
 }
@@ -1136,21 +1127,21 @@
 
 .footer-slogan {
   font-family: 'Noto Serif KR', serif;
-  font-size: 0.95rem; /* 크기 축소 */
+  font-size: 0.9rem; /* 조금 더 축소 */
   color: rgba(255, 255, 255, 0.7);
-  line-height: 1.6;
-  margin-bottom: 2rem;
+  line-height: 1.4;  /* 줄 간격 축소 */
+  margin-bottom: 0.5rem; /* [중요] 기존 2rem에서 0.5rem으로 대폭 축소 (슬로건과 아래 선 사이 여백) */
 }
 
 .footer-info-grid {
-  display: flex; /* 가로 배열로 변경하여 높이 절약 */
+  display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 10px;         /* 항목 간 간격 축소 */
   flex-wrap: wrap;
   font-size: 0.75rem;
   color: rgba(255, 255, 255, 0.4);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding-top: 1.5rem;
+  padding-top: 0.8rem;   /* [중요] 기존 1.5rem에서 0.8rem으로 축소 (선과 하단 정보 사이 여백) */
   max-width: 800px;
   margin: 0 auto;
 }
@@ -1405,28 +1396,41 @@
   position: absolute;
   top: 30px;
   left: 20px;
-  color: #e5dec9;
+  
+  /* [핵심] 아이콘과 텍스트를 한 줄로 세우고 수직 중앙 정렬 */
+  display: inline-flex;
+  align-items: center; 
+  justify-content: center;
+  
+  gap: 6px; /* 아이콘과 글자 사이 간격 */
+  padding: 8px 14px; /* 버튼 내부 상하/좌우 여백 */
+  
+  color: #8c7b6c; /* 베이지 톤에 어울리는 고급스러운 브라운 */
   text-decoration: none;
-  font-size: 0.95rem;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  
+  border: 1px solid rgba(140, 123, 108, 0.3); /* 테두리 */
+  border-radius: 30px; /* 완전한 둥근 모양 */
+  background: rgba(255, 255, 255, 0.5); /* 약간의 반투명 배경 */
+  
   cursor: pointer;
   z-index: 1001;
-  opacity: 0.8;
   transition: all 0.3s ease;
-  padding: 5px 10px;
-  border: 1px solid rgba(229, 222, 201, 0.3);
-  border-radius: 20px;
 }
-.back-button:hover {
-  opacity: 1;
-  background: rgba(255, 255, 255, 0.05);
-}
+
+/* 아이콘(SVG) 크기 및 위치 미세 조정 */
 .back-button svg {
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
   fill: currentColor;
+  display: block; /* 불필요한 하단 여백 제거 */
+}
+
+.back-button:hover {
+  background: #f7f3ed;
+  border-color: #8c7b6c;
+  transform: translateX(-3px); /* 왼쪽으로 살짝 움직이는 효과 */
 }
 
   </style>
@@ -1616,7 +1620,7 @@
 
       </div>
 
-        <p id="submit-guide" style="text-align:center;font-size:0.82rem;color:rgba(255,255,255,0.38);margin-top:1rem;margin-bottom:-0.25rem;transition:opacity 0.3s;">
+        <p id="submit-guide" style="text-align:center;font-size:0.82rem;color:rgba(0, 0, 0, 0.38);margin-top:1rem;margin-bottom:-0.25rem;transition:opacity 0.3s;">
           🔒 모든 항목을 입력하면 신청 가능합니다
         </p>
       <button class="form-submit" id="submit-btn" onclick="handleSubmit()" aria-label="특별 혜택 포함 무료체험 신청하기">
@@ -1637,10 +1641,8 @@
   <p class="footer-slogan">
     아이들의 미래를 위한, 스스로 읽는 힘.
   </p>
-
   <div class="footer-info-grid">
     <span>(주)참빛교육</span>
-    <span>맥그로힐 기반 온라인 영어도서관</span>
     <span>www.bookclubs.co.kr</span>
     <span style="width: 100%; margin-top: 5px; opacity: 0.8;">© 2026 Charmbit Education. All rights reserved.</span>
   </div>
