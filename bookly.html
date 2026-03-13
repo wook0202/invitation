@@ -616,12 +616,13 @@
     }
 
     .ticket {
-      background: linear-gradient(135deg, #330f49 0%, #2d2632 100%);
-      border-radius: 20px;
-      overflow: hidden;
-      position: relative;
-      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
-      z-index: 1;
+     background: #fdfaf7; /* 이미지와 유사한 따뜻한 아이보리 톤 */
+     border: 1px solid #e5dec9; /* 아주 가느다란 골드 테두리 */
+     border-radius: 4px; /* 각진 느낌을 살려 더 고급스럽게 */
+     overflow: hidden;
+     position: relative;
+     box-shadow: 0 20px 40px rgba(42, 31, 31, 0.05); /* 은은한 그림자 */
+     z-index: 1;
 
     }
 
@@ -630,77 +631,65 @@
       content: '';
       position: absolute;
       left: 0; top: 0; bottom: 0;
-      width: 8px;
-      background: linear-gradient(to bottom, #daab21, #aa4c5d, #b79146);
+      width: 4px;
+      background: #c5a35d; /* 샴페인 골드 컬러 */
       z-index: 3;
     }
 
 .ticket::after {
   content: '';
   position: absolute;
-  top: 0;
-  left: -150%;
-  width: 100%; /* 빛의 폭을 조금 더 넓게 */
-  height: 100%;
+  top: 0; left: -150%;
+  width: 100%; height: 100%;
   background: linear-gradient(
     120deg,
     rgba(255, 255, 255, 0) 30%,
-    rgba(255, 255, 255, 0.25) 50%,
+    rgba(255, 255, 255, 0.15) 50%,
     rgba(255, 255, 255, 0) 70%
   );
-  transform: skewX(-25deg); /* 기울기 조절 */
-  animation: ticket-shine 4s infinite ease-in-out;
-  z-index: 2; /* 텍스트와 배경 사이 또는 위로 흐르게 함 */
-  pointer-events: none; /* 클릭 방해 금지 */
-}
-
-/* 샤이닝 애니메이션 정의 */
-@keyframes ticket-shine {
-  0% { left: -150%; }
-  25%, 100% { left: 150%; } /* 1초 동안 반짝이고 3초간 대기 */
+  transform: skewX(-20deg);
+  animation: ticket-shine 5s infinite ease-in-out;
+  pointer-events: none;
 }
 
 .ticket-main {
-  position: relative;
-  z-index: 4; /* 콘텐츠를 가장 위로 */
-  display: grid;
+ display: grid;
   grid-template-columns: 1fr 180px;
-  padding: 3rem 3rem 3rem 3.5rem;
+  padding: 3rem;
+  background: #fff; /* 본문은 깨끗하게 */
 }
 
     /* 티켓 점선 구분 */
     .ticket-divider {
-      position: absolute;
-      right: 180px; top: 0; bottom: 0;
-      width: 1px;
-      border-left: 2px dashed rgba(184,134,11,0.2);
+  position: absolute;
+  right: 180px; top: 0; bottom: 0;
+  width: 1px;
+  border-left: 1px dashed #e5dec9;
+  z-index: 5;
     }
 
-    .ticket-main {
-      padding: 3rem 3rem 3rem 3.5rem;
-      display: grid;
-      grid-template-columns: 1fr 180px;
-      gap: 0;
-    }
-
-    .ticket-label-top, .ticket-disc, .t-benefit-body h4 {
-  color: #f5edd8 !important; /* 티켓 내부 강조색을 베이지로 */
-    }
+    .ticket-label-top {
+  color: #968884 !important;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  margin-bottom: 0.8rem;
+}
 
     .ticket-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--white);
-      line-height: 1.2;
-      margin-bottom: 0.3rem;
+      font-family: 'Noto Serif KR', serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #2a1f1f !important;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
     }
 
     .ticket-subtitle {
-      font-family: 'Noto Serif KR', serif;
-      font-size: 0.9625rem;
-      color: rgba(255,255,255,0.6);
-      margin-bottom: 2rem;
+     font-family: 'Noto Serif KR', serif;
+  color: #c5a35d !important; /* 골드 포인트 컬러 */
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
     }
 
     .ticket-benefits {
@@ -716,85 +705,44 @@
     }
 
     .t-benefit-icon {
-      width: 38px; height: 38px;
-      background: rgba(139, 26, 26, 0.3);
-      border: 1px solid rgba(229, 222, 201, 0.2);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.0625rem;
-      flex-shrink: 0;
+     background: #fdfaf7 !important;
+  border: 1px solid #e5dec9 !important;
+  color: #c5a35d !important;
+  border-radius: 50% !important; /* 원형으로 변경하여 더 우아하게 */
     }
 
     .t-benefit-body h4 {
-      font-size: 0.9625rem;
-      font-weight: 700;
-      color: var(--gold-light);
-      margin-bottom: 0.2rem;
+     color: #2a1f1f !important;
+  font-size: 1rem;
+  font-weight: 700;
     }
 
     .t-benefit-body p {
-      font-size: 0.845rem;
-      color: rgba(255,255,255,0.5);
-      line-height: 1.6;
+   color: #666 !important;
+  font-size: 0.85rem;
     }
 
     .ticket-side {
-      padding: 3rem 1.5rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      gap: 0.5rem;
+     background: #fdfaf7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
     }
 
     .ticket-disc {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 3.5rem;
-      font-weight: 700;
-      color: var(--gold-light);
-      line-height: 1;
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #c5a35d !important;
     }
 
     .ticket-disc-label {
-      font-size: 0.72rem;
-      color: rgba(255,255,255,0.4);
-      letter-spacing: 0.08em;
+      color: #968884 !important;
+  font-weight: 600;
+  letter-spacing: 0.05em;
     }
-
-    .ticket-qr {
-      margin-top: 1.5rem;
-      width: 64px; height: 64px;
-      background: rgba(255,255,255,0.08);
-      border-radius: 8px;
-      display: grid;
-      grid-template-columns: repeat(4,1fr);
-      gap: 3px;
-      padding: 8px;
-    }
-
-    .qr-dot {
-      background: var(--burgundy);
-      border-radius: 1px;
-    }
-
-    .ticket-free-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: rgba(184,134,11,0.12);
-      border: 1px solid rgba(184,134,11,0.25);
-      color: var(--gold-light);
-      font-size: 0.845rem;
-      font-weight: 700;
-      padding: 0.6rem 1.2rem;
-      border-radius: 8px;
-      margin-top: 2.5rem;
-      width: 100%;
-      justify-content: center;
-    }
+  
 
     .referrer-note {
       text-align: center;
