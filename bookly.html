@@ -51,16 +51,11 @@
   animation: fadeIn 0.5s ease;
 }
 
-/* 48행 부근 .popup-card 스타일 교체 */
+/* popup-card: 이미지 위에 클릭 영역만 올리기 위한 래퍼 */
 .popup-card {
-  width: 100%;
-  max-width: 420px;
-  aspect-ratio: 2 / 3; /* 이미지 비율에 맞춰 자동 조절 */
-  background: url('편지지2.png') no-repeat center center;
-  background-size: contain;
   position: relative;
-  text-align: center;
-  box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+  display: inline-block;
+  line-height: 0;
 }
 
 /* 기존 봉투 효과들 제거 */
@@ -1458,7 +1453,7 @@
   <!-- ✅ PURL 개인화 팝업 -->
  <div id="purl-popup" role="dialog" aria-modal="true">
   <div class="popup-card">
-
+    <img src="편지지2.png" alt="초대장" style="width:100%;max-width:420px;display:block;">
     <div class="popup-seal" onclick="closePopup()"></div>
   </div>
 </div>
@@ -1526,12 +1521,7 @@
         </div>
         <br>
 
-<section class="benefit-section">
-
-  <div class="ticket-wrapper">
-    <img src="cp_img.png" alt="VIP Ticket" class="pure-image-ticket">
-  </div>
-</section>
+<img src="cp_img.png" alt="VIP Ticket" style="width:100%;max-width:680px;display:block;margin:0 auto;">
 
 
 <div id="confirm-area" style="text-align: center; padding: 40px 0;">
