@@ -600,8 +600,8 @@
     }
 
     .ticket-wrapper {
-  width: 96%;           /* 화면 너비의 95% 사용 */
-  max-width: 900px;     /* PC에서는 너무 커지지 않게 제한 */
+  width: 95%;           /* 화면 너비의 95% 사용 */
+  max-width: 700px;     /* PC에서는 너무 커지지 않게 제한 */
   margin: 0 auto;       /* 가로 중앙 정렬 */
   padding: 10px 0;      /* 위아래 그림자가 잘리지 않도록 여유 공간 부여 */
   display: flex;
@@ -1429,7 +1429,28 @@
   transform: translateX(-3px); /* 왼쪽으로 살짝 움직이는 효과 */
 }
 
+/* 모바일 전용 스타일 (화면 너비 768px 이하) */
+@media screen and (max-width: 768px) {
+  /* 1. 섹션 전체 여백 제거 */
+  .benefit-section {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
 
+  /* 2. 티켓 컨테이너를 화면 너비에 꽉 맞춤 */
+  .ticket-wrapper {
+    width: 100% !important;   /* 화면 너비 100% 사용 */
+    max-width: none !important; /* 최대 크기 제한 해제 */
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* 3. 이미지 크기 강제 확대 */
+  .pure-image-ticket {
+    width: 100% !important;   /* 가로를 꽉 채움 */
+    transform: scale(1.05);   /* 미세하게 더 키우고 싶을 때 사용 (선택사항) */
+  }
+}
   </style>
 </head>
 <body>
