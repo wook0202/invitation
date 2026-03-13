@@ -263,13 +263,15 @@
     }
 
     .sec-title {
-      font-family: 'Noto Serif KR', serif;
-      font-size: clamp(1.5rem, 3vw, 2.2rem);
-      font-weight: 900;
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+      font-weight: 500;
       text-align: center;
-      color: var(--deep);
-      line-height: 1.4;
-      margin-bottom: 1rem;
+      color: #2a1f1f;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.05em;
+      word-break: keep-all;
     }
 
     .sec-desc {
@@ -956,12 +958,13 @@
     }
 
     .cta-header h2 {
-      font-family: 'Noto Serif KR', serif;
-      font-size: clamp(1.4rem, 3vw, 2rem);
-      font-weight: 900;
-      color: var(--black);
-      line-height: 1.4;
-      margin-bottom: 1rem;
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+      font-weight: 500;
+      color: #2a1f1f;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.05em;
     }
 
     .cta-header h2 span { color: var(--gold-light); }
@@ -1011,7 +1014,7 @@
       background: rgba(0, 0, 0, 0.06);
     }
 
-    .form-input::placeholder { color: rgba(255,255,255,0.25); }
+    .form-input::placeholder { color: rgba(0, 0, 0, 0.25); }
     .form-input[readonly] { color: var(--black); cursor: default; }
 
     .form-input-ref {
@@ -1053,20 +1056,22 @@
     }
 
 
+
     .form-submit:hover:not(:disabled):not(.locked) {
       transform: translateY(-2px);
       box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
     }
     .form-submit:disabled,
     .form-submit.locked {
-      background: rgba(255,255,255,0.07) !important;
-      color: rgba(255,255,255,0.22) !important;
+      background: rgba(0, 0, 0, 0.07) !important;
+      color: rgba(0, 0, 0, 0.22) !important;
       cursor: not-allowed !important;
       transform: none !important;
       box-shadow: none !important;
     }
     .form-submit:disabled::before,
     .form-submit.locked::before { display: none; }
+    
     .ref-success-bar {
       display: flex;
       align-items: center;
@@ -1433,6 +1438,7 @@
   transform: translateX(-3px); /* 왼쪽으로 살짝 움직이는 효과 */
 }
 
+
   </style>
 </head>
 <body>
@@ -1466,7 +1472,7 @@
               <div class="letter-header">
                 <div class="letter-from-to">
                   <div>수신: <strong>원장님 귀하</strong></div>
-                  <div>발신: <strong>소중한 동료로부터</strong></div>
+                  <div>발신: <strong>참빛북클럽</strong></div>
                 </div>
 
               </div>
@@ -1493,9 +1499,9 @@
   <!-- ─── BENEFIT SECTION ─── -->
   <section class="benefit-section" id="benefit" aria-labelledby="benefit-title">
     <div class="sec-inner">
-      <p class="sec-label" aria-hidden="true">앰배서더 특별 혜택</p>
+      <p class="sec-label" aria-hidden="true">신규 특별 혜택</p>
       <h2 class="sec-title" id="benefit-title">
-        오직 앰배서더 추천으로만 가능한<br>'한정판 기회'
+        오직 신규 원장님만 가능한<br>'특별한 기회'
       </h2>
       <p class="sec-desc">
       
@@ -1516,7 +1522,7 @@
             <div>
               <p class="ticket-label-top">AMBASSADOR EXCLUSIVE BENEFIT</p>
               <h3 class="ticket-title">VIP<br>Member</h3>
-              <p class="ticket-subtitle">원장님 전용 혜택 패키지</p>
+              <p class="ticket-subtitle">월컴 쿠폰 패키지</p>
 
               <div class="ticket-benefits" role="list" aria-label="제공 혜택 목록">
                 <div class="t-benefit" role="listitem">
