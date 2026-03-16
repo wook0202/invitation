@@ -1570,11 +1570,11 @@
 
         <!-- 추천인 코드 -->
         <div class="form-row">
-          <label class="form-label">✦ 추천인 코드</label>
+          <label class="form-label">✦ 추천해주신 원장님 기관코드</label>
           <div style="display:flex;gap:0.6rem">
             <input class="form-input" id="field-code" type="text"
-              placeholder="예) CBC-ABC123" maxlength="12"
-              oninput="this.value=this.value.replace(/[^A-Za-z0-9\-]/g,'').toUpperCase(); checkFormReady()"
+              placeholder= "원장님 학원 기관코드 입력해주세요"
+              oninput= "checkFormReady()"
               onkeydown="if(event.key==='Enter') handleSubmit()"
               style="flex:1;letter-spacing:0.12em;font-weight:700;font-size:1.05rem"/>
           </div>
@@ -1665,8 +1665,6 @@
       const codeField = document.getElementById('field-code');
       if (codeField) {
         codeField.value = urlRef.replace(/[^A-Za-z0-9\-]/g,'').toUpperCase();
-        codeField.readOnly = true;
-        codeField.style.opacity = '0.7';
         setTimeout(checkFormReady, 50);
       }
     }
@@ -1679,21 +1677,12 @@
       const fb    = document.getElementById('code-feedback');
 
       if (code.length > 0) {
-        if (!/^CBC-/.test(code)) {
-          fb.style.color = '#fca5a5';
-          fb.textContent = 'CBC- 로 시작해야 합니다';
-        } else if (!/^CBC-[A-Z]{3}[0-9]{3}$/.test(code)) {
-          fb.style.color = 'rgba(255,200,100,0.8)';
-          fb.textContent = '형식: CBC-ABC123 (알파벳 3자 + 숫자 3자)';
-        } else {
-          fb.style.color = '#4ade80';
-          fb.textContent = '✓ 올바른 코드 형식입니다';
-        }
+
       } else {
         fb.textContent = '';
       }
 
-      const codeValid = /^CBC-[A-Z]{3}[0-9]{3}$/.test(code);
+      const codeValid = code.length > 0;
       const allFilled = name && phone && codeValid;
 
       const btn = document.getElementById('submit-btn');
