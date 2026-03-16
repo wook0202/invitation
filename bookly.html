@@ -27,13 +27,22 @@
     }
 
     *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+      overscroll-behavior: none;
+    }
 
     body {
       font-family: 'Noto Sans KR', sans-serif;
       background: var(--ivory);
       color: var(--deep);
       overflow-x: hidden;
+      overscroll-behavior: none;
+      /* 한국어 텍스트 줄바꿈 기종 무관 고정 */
+      word-break: keep-all;
+      overflow-wrap: break-word;
+      -webkit-text-size-adjust: 100%; /* 모바일 폰트 자동 확대 방지 */
+      text-size-adjust: 100%;
     }
 
     /* ─── PURL POPUP ─── */
@@ -259,14 +268,15 @@
 
     .sec-title {
       font-family: 'Noto Sans KR', sans-serif;
-      font-size: clamp(1.4rem, 2.5vw, 1.8rem);
-      font-weight: 500;
+      font-size: clamp(1.5rem, 4.5vw, 1.8rem);
+      font-weight: 700;
       text-align: center;
       color: #2a1f1f;
-      line-height: 1.6;
+      line-height: 1.55;
       margin-bottom: 1.5rem;
-      letter-spacing: 0.05em;
+      letter-spacing: -0.01em;
       word-break: keep-all;
+      overflow-wrap: break-word;
     }
 
     .sec-desc {
@@ -392,13 +402,16 @@
       font-weight: 700;
       color: var(--brown);
       margin-bottom: 1.2rem;
+      word-break: keep-all;
     }
 
     .letter-text {
-      font-size: 0.9625rem;
+      font-size: 1rem;
       line-height: 2;
       color: var(--brown);
       margin-bottom: 1.5rem;
+      word-break: keep-all;
+      overflow-wrap: break-word;
     }
 
     .letter-text strong { color: var(--burgundy); font-weight: 700; }
@@ -945,12 +958,14 @@
 
     .cta-header h2 {
       font-family: 'Noto Sans KR', sans-serif;
-      font-size: clamp(1.4rem, 2.5vw, 1.8rem);
-      font-weight: 500;
+      font-size: clamp(1.5rem, 4.5vw, 1.8rem);
+      font-weight: 700;
       color: #2a1f1f;
-      line-height: 1.6;
+      line-height: 1.55;
       margin-bottom: 1.5rem;
-      letter-spacing: 0.05em;
+      letter-spacing: -0.01em;
+      word-break: keep-all;
+      overflow-wrap: break-word;
     }
 
     .cta-header h2 span { color: var(--gold-light); }
@@ -959,6 +974,8 @@
       font-size: 0.9425rem;
       color: rgba(0, 0, 0, 0.55);
       line-height: 1.8;
+      word-break: keep-all;
+      overflow-wrap: break-word;
     }
 
     /* 상담 신청 폼 */
@@ -1138,6 +1155,13 @@
 }
 
     /* ─── ANIMATIONS ─── */
+
+    /* 모바일 전용 줄바꿈 — PC에선 숨김 */
+    br.mo { display: none; }
+    @media (max-width: 768px) {
+      br.mo { display: block; }
+    }
+
     @keyframes float {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-10px); }
@@ -1464,7 +1488,7 @@
     <div class="sec-inner">
       <p class="sec-label" aria-hidden="true">진심 어린 편지</p>
       <h2 class="sec-title" id="letters-title">
-        원장님의 고민을 이해하고 <br> 진심을 담아 보냅니다
+        원장님의 고민을 이해하고<br class="mo"> 진심을 담아 보냅니다
       </h2>
       <p class="sec-desc">
         
@@ -1486,9 +1510,12 @@
               <div class="letter-body">
                 <p class="letter-greeting">원장님, 안녕하세요.</p>
                 <p class="letter-text">
-                  학부모님들의 기대가 해마다 높아지면서, <br>상담 자리에서 아이의 성장을 어떻게 <br>보여드려야 할지 고민이 깊어지는 날입니다.
-                  참빛북클럽을 직접 경험해보니, <br> 상담이 설득의 자리가 아닌 <strong>함께 성장을 확인하는 자리</strong>로 자연스럽게 바뀌더라고요.
-                  <br>원장님께도 꼭 이 경험을 드리고 싶어 이 편지를 씁니다.
+                  학부모님들의 기대가 해마다 높아지면서,<br class="mo">
+                  상담 자리에서 아이의 성장을 어떻게<br class="mo">
+                  보여드려야 할지 고민이 깊어지는 날입니다.<br class="mo">
+                  참빛북클럽을 직접 경험해보니,<br class="mo">
+                  상담이 설득의 자리가 아닌 <strong>함께 성장을 확인하는 자리</strong>로 자연스럽게 바뀌더라고요.<br class="mo">
+                  원장님께도 꼭 이 경험을 드리고 싶어 이 편지를 씁니다.
                 </p>
                 <div class="letter-signature">
                 
@@ -1508,7 +1535,7 @@
     <div class="sec-inner">
       <p class="sec-label" aria-hidden="true">신규 특별 혜택</p>
       <h2 class="sec-title" id="benefit-title">
-        오직 신규 원장님만 가능한<br>'특별한 기회'
+        오직 신규 원장님만 가능한<br class="mo"> '특별한 기회'
       </h2>
       <p class="sec-desc">
       
@@ -1517,7 +1544,7 @@
        <!-- 추천인 혜택 -->
         <div class="referrer-note" aria-label="추천인 혜택 안내">
           🤍 <strong>나누는 기쁨이 커집니다.</strong>
-          추천하신 원장님께도 <strong><br>1개월 무료 혜택</strong>을 함께 드립니다.
+          추천하신 원장님께도 <strong>1개월 무료 혜택</strong>을 함께 드립니다.
         </div>
         <br>
 
@@ -1543,11 +1570,10 @@
   </a>
     <div class="cta-inner">
       <div class="cta-header">
-        <h2 id="cta-title">이제 원장님의 학원에<br>'성장'이라는 선물을 더하세요
+        <h2 id="cta-title">이제 원장님의 학원에<br class="mo"> '성장'이라는 선물을 더하세요
         </h2>
         <p>
-          아래 양식을 작성하시면 매니저가 직접 연락드립니다.<br>
-          앰배서더 추천 혜택이 자동으로 적용됩니다.
+          아래 양식을 작성하시면 매니저가 직접 연락드립니다.<br class="mo"> 앰배서더 추천 혜택이 자동으로 적용됩니다.
         </p>
       </div>
 
@@ -1646,7 +1672,7 @@
       }
     });
     document.getElementById('cta-title').innerHTML =
-      `<span>${toName}</span> 원장님,<br>이제 원장님의 학원에<br>'성장'이라는 선물을 더하세요`;
+      `<span>${toName}</span> 원장님,<br class="mo"> 이제 원장님의 학원에<br class="mo"> '성장'이라는 선물을 더하세요`;
 
     /* ─── STORAGE: localStorage (파일 환경 포함 어디서나 작동) ─── */
     const DB = {
@@ -1835,7 +1861,11 @@ function revealApplySection() {
     contactSection.style.display = 'block';
     contactSection.style.opacity = '0';
     contactSection.style.minHeight = '100vh';
-    document.body.style.backgroundColor = '#1a1208'; 
+
+    /* ── 검은 배경 노출 방지: body를 contact 섹션 배경색과 동일하게 ── */
+    document.body.style.backgroundColor = '#efe9e1';
+    document.body.style.overscrollBehavior = 'none'; /* 바운스 스크롤 차단 */
+    document.documentElement.style.overscrollBehavior = 'none';
 
     setTimeout(() => {
       contactSection.style.transition = 'opacity 0.7s ease';
@@ -1865,7 +1895,10 @@ function resetPage() {
     }
   });
 
-  document.body.style.backgroundColor = ''; 
+  document.body.style.backgroundColor = '';
+  document.body.style.overscrollBehavior = '';
+  document.documentElement.style.overscrollBehavior = '';
+
   const benefitSection = document.getElementById('benefit');
   if (benefitSection) {
     benefitSection.scrollIntoView({ behavior: 'auto' });
